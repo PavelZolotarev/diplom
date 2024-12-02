@@ -25,6 +25,7 @@ namespace diplom
             InitializeComponent();
             Console.WriteLine("Привет1");
             Console.WriteLine("Sas");
+            Console.WriteLine("Сломал !");
         }
     }
 }
