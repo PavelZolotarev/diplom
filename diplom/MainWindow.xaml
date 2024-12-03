@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:diplom"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="1000" WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="DefaultButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Width="100"  Height="30" CornerRadius="5" Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#E0FFFF"></Setter>
+                                
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"></DropShadowEffect>
+                                    </Setter.Value>
+                                    
+                                </Setter>
+
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#ffdadada">
+        <Border Height="100" MinWidth="400" MaxWidth="550" Margin="15" Padding="30" VerticalAlignment="Center" CornerRadius="20" Background="White" MinHeight="300" MaxHeight="450">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="BLACK" ShadowDepth="0">
+                    
+                </DropShadowEffect>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Привет" FontSize="30" FontWeight="Bold"  Margin="0, 0, 0, 20"></TextBlock>
+                <Grid Margin="0 0 0 20">
+                    <Button HorizontalAlignment="Left"   Content="Регистрация" Foreground="white" FontSize="12" FontFamily = "TimesNewRoman" Background="#008B8B"  ></Button>
+                    <Button HorizontalAlignment="Right" Content="Войти" Foreground="#008B8B" Background="white" FontFamily="TimesNewRoman" FontSize="12" Style="{StaticResource DefaultButtonStyle}" ></Button>
+                </Grid>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
