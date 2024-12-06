@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:diplom"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
         Title="MainWindow" Height="600" Width="1000" WindowStyle="None">
     <Window.Resources>
         <Style x:Key="DefaultButtonStyle" TargetType="Button">
@@ -15,27 +15,50 @@
                         <Border x:Name="border" Width="100"  Height="30" CornerRadius="5" Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
-
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" TargetName="border" Value="#E0FFFF"></Setter>
-                                
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter Property="Effect">
                                     <Setter.Value>
                                         <DropShadowEffect BlurRadius="10" ShadowDepth="5"></DropShadowEffect>
                                     </Setter.Value>
-                                    
                                 </Setter>
-
-
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
-
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style x:Key="RegistationButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                 <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Width="100" Height="30" CornerRadius="5" Background="#008B8B">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#008080"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"></DropShadowEffect>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>   
+            
+            
+            
+                 </Setter>
+           
+
         </Style>
     </Window.Resources>
     <Grid Background="#ffdadada">
@@ -48,9 +71,36 @@
             <StackPanel>
                 <TextBlock Text="Привет" FontSize="30" FontWeight="Bold"  Margin="0, 0, 0, 20"></TextBlock>
                 <Grid Margin="0 0 0 20">
-                    <Button HorizontalAlignment="Left"   Content="Регистрация" Foreground="white" FontSize="12" FontFamily = "TimesNewRoman" Background="#008B8B"  ></Button>
-                    <Button HorizontalAlignment="Right" Content="Войти" Foreground="#008B8B" Background="white" FontFamily="TimesNewRoman" FontSize="12" Style="{StaticResource DefaultButtonStyle}" ></Button>
+                    <Button HorizontalAlignment="Left"   Content="Регистрация" Foreground="White" FontSize="12" FontFamily = "TimesNewRoman"  Cursor="Hand" Style="{StaticResource RegistationButton}" />
+                    <Button HorizontalAlignment="Right" Content="Войти" Foreground="#008B8B" Background="white" FontFamily="TimesNewRoman" Cursor="Hand" FontSize="12" Style="{StaticResource DefaultButtonStyle}" ></Button>
                 </Grid>
+                <TextBlock Text="Введите логин:"    Margin="0 0 0 0"  Style="{StaticResource normalText}" Foreground="#878787"></TextBlock>
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/pictures/loginIcon.png" Height="16"/>
+                        <TextBlock x:Name="textLogin" MouseDown="textLogin_MouseDown" Text="Логин" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtLogin" TextChanged="txtLogin_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/pictures/passIcon.png" Height="16"/>
+                        <TextBlock x:Name="textPassword" MouseDown="textPassword_MouseDown" Text="Пароль" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <PasswordBox x:Name="txtPassword" PasswordChanged="txtPassword_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
             </StackPanel>
         </Border>
     </Grid>

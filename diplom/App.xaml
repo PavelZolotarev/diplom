@@ -4,6 +4,38 @@
              xmlns:local="clr-namespace:diplom"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="normalText" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="LineHeight" Value="28"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#ffffff"/>
+        </Style>
+
+        <Style x:Key="textHint" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Panel.ZIndex" Value="1"/>
+            <Setter Property="Margin" Value="10 0 0 0"/>
+            <Setter Property="Foreground" Value="#acb0af"/>
+        </Style>
+
+        <Style x:Key="textBox" TargetType="Control">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="Margin" Value="10 0 0 0"/>
+            <Setter Property="Foreground" Value="#878787"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+
+        </Style>
+            
+            
+            
+            
+            
+            
+            
+            
     </Application.Resources>
 </Application>

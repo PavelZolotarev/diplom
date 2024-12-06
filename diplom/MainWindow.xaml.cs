@@ -25,5 +25,36 @@ namespace diplom
             InitializeComponent();
            
         }
+
+        private void textLogin_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            txtLogin.Focus();
+        }
+        private void txtLogin_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtLogin.Text) && txtLogin.Text.Length > 0)
+            {
+                textLogin.Visibility = Visibility.Collapsed;
+            }    
+            else
+            {
+                textLogin.Visibility= Visibility.Visible;
+            }
+        }
+        private void textPassword_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            txtPassword.Focus();
+        }
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPassword.Password) && txtPassword.Password.Length > 0)
+            {
+                textPassword.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                textPassword.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
