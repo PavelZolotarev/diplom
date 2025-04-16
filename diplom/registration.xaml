@@ -1,0 +1,125 @@
+﻿<Window x:Class="diplom.registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:diplom"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="registration" Height="600" Width="1000" WindowStyle="None" WindowState="Maximized">
+    <Grid Background="#ffdadada">
+        <Border Height="800" MinWidth="400" MaxWidth="650" Margin="15" Padding="10" VerticalAlignment="Center" CornerRadius="20" Background="White" MinHeight="300" MaxHeight="550" Cursor="">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="Black" ShadowDepth="0"/>
+            </Border.Effect>
+
+            <StackPanel>
+                <Image Source="/pictures/closeIcon.png" Height="15" HorizontalAlignment="Right" MouseUp="Image_MouseUp" Cursor="Hand" Style="{StaticResource imgClose}" RenderTransformOrigin="1.167,0.5"/>
+                <TextBlock Text="Регистрация в системе мониторинга научной деятельности преподавателей" FontSize="14" FontWeight="Bold" Margin="0, 0, 0, 20"/>
+
+                <!-- Логин -->
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9" Cursor="">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/pictures/loginIcon.png" Height="16"/>
+                        <TextBlock x:Name="textLogin" MouseDown="textLogin_MouseDown" Text="Введите логин" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtLogin" TextChanged="txtLogin_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <!-- Пароль -->
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/pictures/passIcon.png" Height="16"/>
+                        <TextBlock x:Name="textPassword" MouseDown="textPassword_MouseDown" Text="Введите пароль" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtPassword" TextChanged="txtPassword_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <!-- Повторить пароль -->
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/pictures/passIcon.png" Height="16"/>
+                        <TextBlock x:Name="againTextPassword" MouseDown="againTextPassword_MouseDown" Text="Повторите ввод пароля" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="againTxtPassword" TextChanged="againTxtPassword_PasswordChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <!-- ФИО -->
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image  Height="16"/>
+                        <TextBlock x:Name="textFullName"  MouseDown="textFullName_MouseDown" Text="Введите ФИО" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtFullName" TextChanged="txtFullName_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <!-- Email -->
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image  Height="16"/>
+                        <TextBlock x:Name="textEmail"  Text="Введите Email" MouseDown="textEmail_MouseDown" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtEmail" TextChanged="txtEmail_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <!-- Должность -->
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image  Height="16"/>
+                        <TextBlock x:Name="textPosition" MouseDown="textPosition_MouseDown" Text="Выберите должность" Cursor="Hand" Style="{StaticResource textHint}"/>
+
+                        <!-- ComboBox для должности -->
+                        <ComboBox  x:Name="comboPosition" SelectionChanged="comboPosition_SelectionChanged" Style="{StaticResource comboBoxStyle}" Cursor="">
+                            <ComboBoxItem>Младший преподаватель</ComboBoxItem>
+                            <ComboBoxItem>Старший преподаватель</ComboBoxItem>
+                            <ComboBoxItem>Доцент</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                </Border>
+
+
+                <!-- Отдел -->
+                <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image  Height="16"/>
+                        <TextBlock x:Name="textDepartment" MouseDown="textDepartment_MouseDown" Text="Введите отдел" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtDepartment" TextChanged="txtDepartment_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <Grid Margin="0 30 0 20">
+                    <Button HorizontalAlignment="Center" Click="Button_Reg" Content="Зарегистрироваться" Foreground="White" FontSize="12" FontFamily="TimesNewRoman" Cursor="Hand" Style="{StaticResource regButton}"/>
+                    <Button Click="Button_Click" HorizontalAlignment="Left" Content="Назад" Foreground="#008B8B" FontSize="12" Background="White" FontFamily="TimesNewRoman" Cursor="Hand" Style="{StaticResource backButton}"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

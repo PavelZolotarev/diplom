@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:diplom"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
-        Title="MainWindow" Height="600" Width="1000" WindowStyle="None">
+        Title="MainWindow" Height="600" Width="1000" WindowStyle="None" WindowState="Maximized">
+    
     <Window.Resources>
         <Style x:Key="DefaultButtonStyle" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -33,7 +34,7 @@
         </Style>
         <Style x:Key="RegistationButton" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-                 <Setter Property="Template">
+            <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Width="100" Height="30" CornerRadius="5" Background="#008B8B">
@@ -52,29 +53,32 @@
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
-                </Setter.Value>   
-            
-            
-            
-                 </Setter>
-           
+                </Setter.Value>
+
+
+
+            </Setter>
+
 
         </Style>
     </Window.Resources>
     <Grid Background="#ffdadada">
-        <Border Height="100" MinWidth="400" MaxWidth="550" Margin="15" Padding="30" VerticalAlignment="Center" CornerRadius="20" Background="White" MinHeight="300" MaxHeight="450">
+       
+        <Border Height="100" MinWidth="400" MaxWidth="550" Margin="15" Padding="10" VerticalAlignment="Center" CornerRadius="20" Background="White" MinHeight="300" MaxHeight="450">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="BLACK" ShadowDepth="0">
-                    
+
                 </DropShadowEffect>
             </Border.Effect>
+
             <StackPanel>
-                <TextBlock Text="Привет" FontSize="30" FontWeight="Bold"  Margin="0, 0, 0, 20"></TextBlock>
+                <Image Source="/pictures/closeIcon.png" Height="20" HorizontalAlignment="Right" MouseUp="Image_MouseUp" Cursor="Hand" Style="{StaticResource  imgClose}"/>
+                <TextBlock Text="Добро пожаловать в систему учета нучной деятельности преподавателей" FontSize="14" FontWeight="Bold"  Margin="0, 0, 0, 20"></TextBlock>
                 <Grid Margin="0 0 0 20">
-                    <Button HorizontalAlignment="Left"   Content="Регистрация" Foreground="White" FontSize="12" FontFamily = "TimesNewRoman"  Cursor="Hand" Style="{StaticResource RegistationButton}" />
-                    <Button HorizontalAlignment="Right" Content="Войти" Foreground="#008B8B" Background="white" FontFamily="TimesNewRoman" Cursor="Hand" FontSize="12" Style="{StaticResource DefaultButtonStyle}" ></Button>
+                    <Button HorizontalAlignment="Left"   Content="Регистрация" Foreground="White" FontSize="12" FontFamily = "TimesNewRoman"  Cursor="Hand" Style="{StaticResource RegistationButton}" Click="Button_Registration" />
+                    <Button HorizontalAlignment="Left" Content="Войти" Foreground="#008B8B" Background="white" FontFamily="TimesNewRoman" Cursor="Hand" FontSize="12" Style="{StaticResource DefaultButtonStyle}" Click="Button_Login" Height="30" Margin="430,0,0,0" VerticalAlignment="Bottom"></Button>
                 </Grid>
-                <TextBlock Text="Введите логин:"    Margin="0 0 0 0"  Style="{StaticResource normalText}" Foreground="#878787"></TextBlock>
+
                 <Border BorderThickness="1" BorderBrush="#acb0af" Margin="70 7" CornerRadius="5">
                     <Grid Margin="7 9">
                         <Grid.ColumnDefinitions>
@@ -83,7 +87,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="/pictures/loginIcon.png" Height="16"/>
-                        <TextBlock x:Name="textLogin" MouseDown="textLogin_MouseDown" Text="Логин" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <TextBlock x:Name="textLogin" MouseDown="textLogin_MouseDown"  Text="Логин"  Cursor="Hand" Style="{StaticResource textHint}"/>
                         <TextBox x:Name="txtLogin" TextChanged="txtLogin_TextChanged" Style="{StaticResource textBox}"/>
                     </Grid>
                 </Border>
@@ -96,8 +100,8 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="/pictures/passIcon.png" Height="16"/>
-                        <TextBlock x:Name="textPassword" MouseDown="textPassword_MouseDown" Text="Пароль" Cursor="Hand" Style="{StaticResource textHint}"/>
-                        <PasswordBox x:Name="txtPassword" PasswordChanged="txtPassword_TextChanged" Style="{StaticResource textBox}"/>
+                        <TextBlock x:Name="textPassword" Text="Пароль" MouseDown="textPassword_MouseDown" Cursor="Hand" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtPassword" TextChanged="txtPassword_TextChanged" Style="{StaticResource textPass}"/>
                     </Grid>
                 </Border>
 
